@@ -53,7 +53,7 @@ Simple Console for C#.
 # How to use?
 1. Create your program and include this library in your references
 2. Copy Program.cs from Example to your application
-3. Create new class named `StartupWindow` that is extends from `ConsoleWindow`
+3. Create new class named `StartupWindow` that extends from `ConsoleWindow`
 4. Implement `_Draw()` method
 5. Profit
   
