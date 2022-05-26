@@ -58,8 +58,8 @@ Simple Console for C#.
 5. Profit
   
 # How to create command
-In your `: ConsoleWindow` class create new method with text / number arguments.
-Add `[OnCommand(name, description, <usage>, <args_count>)] attribute to it. Everyting else is automatic ;)
+In your `: ConsoleWindow` class create new method with text / number parameters.
+Add `[OnCommand(name, description, <usage>)] attribute to it. Everyting else is automatic ;)
   
 Note: it's recommended to place `RequestCommand()` at end of your command. 
   Otherwise window will automatically refresh after executing your command and all drawn text will be removed.
