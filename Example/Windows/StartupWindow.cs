@@ -21,7 +21,7 @@ namespace Example.Windows
             Environment.Exit(1);
         }
 
-        [OnCommand("echo", "echo a message", "echo <message>", 1)]
+        [OnCommand("echo", "echo a message", "echo <message>")]
         protected void Echo(string message)
         {
             Text(message, ConsoleColor.Magenta);

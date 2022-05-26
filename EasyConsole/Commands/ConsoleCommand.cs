@@ -6,17 +6,13 @@ namespace EasyConsole.Commands
 {
     public class ConsoleCommand
     {
-        public ConsoleCommand(string name, string description, string usage, int argumentsCount, 
+        public ConsoleCommand(string name, string description, string usage, 
             MethodBase method)
         {
             Name = name;
             Description = description;
             Usage = usage;
-            ArgumentsCount = argumentsCount;
             Method = method;
-            
-            if(method.GetParameters().Length != argumentsCount)
-                throw new ArgumentException("Arguments count does not match method parameters count");
         }
 
         /// <summary>

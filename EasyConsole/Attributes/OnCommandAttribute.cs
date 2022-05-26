@@ -21,18 +21,13 @@ namespace EasyConsole.Attributes
         /// Command's usage
         /// </summary>
         public string Usage { get; set; }
-        
-        /// <summary>
-        /// Amount of arguments required
-        /// </summary>
-        public int ArgumentsCount { get; set; }
 
         /// <summary>
         /// Construct command from this attribute
         /// </summary>
         /// <returns></returns>
         public ConsoleCommand ConstructCommand(MethodBase method) => new (Name.ToLower(), Description, 
-            string.IsNullOrEmpty(Usage) ? Name.ToLower() : Usage, ArgumentsCount, method);
+            string.IsNullOrEmpty(Usage) ? Name.ToLower() : Usage, method);
         
         /// <summary>
         /// Console command constructor
@@ -41,12 +36,11 @@ namespace EasyConsole.Attributes
         /// <param name="description">Description shown in help</param>
         /// <param name="usage">Usage shown if failed</param>
         /// <param name="args">Amount of arguments</param>
-        public OnCommandAttribute(string name, string description, string usage = "", int args = 0)
+        public OnCommandAttribute(string name, string description, string usage = "")
         {
             Name = name;
             Description = description;
             Usage = usage;
-            ArgumentsCount = args;
         }
     }
 }
