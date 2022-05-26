@@ -32,7 +32,7 @@ namespace EasyConsole.Attributes
         /// </summary>
         /// <returns></returns>
         public ConsoleCommand ConstructCommand(MethodBase method) => new (Name.ToLower(), Description, 
-            string.IsNullOrEmpty(Usage) ? Usage : Name.ToLower(), ArgumentsCount, method);
+            string.IsNullOrEmpty(Usage) ? Name.ToLower() : Usage, ArgumentsCount, method);
         
         /// <summary>
         /// Console command constructor

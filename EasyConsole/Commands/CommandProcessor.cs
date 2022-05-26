@@ -84,6 +84,7 @@ namespace EasyConsole.Commands
             catch(Exception exception)
             {
                 ConsoleWindow.Error(exception.Message);
+                ConsoleWindow.Info("Usage: " + command.Usage);
                 
                 source.RequestCommand();
                 return false;
