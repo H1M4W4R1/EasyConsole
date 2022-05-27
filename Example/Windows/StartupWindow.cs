@@ -1,5 +1,6 @@
 ﻿using System;
 using EasyConsole.Attributes;
+using EasyConsole.Data;
 using EasyConsole.Rendering;
 
 namespace Example.Windows
@@ -24,7 +25,14 @@ namespace Example.Windows
         [OnCommand("echo", "echo a message", "echo <message>")]
         protected void Echo(string message)
         {
-            Text(message, ConsoleColor.Magenta);
+            var result = Ask($"Do you want to echo '{message}'?", new[]
+            {
+                new Answer("yes"),
+                new Answer("no")
+            });
+            
+            if(result == 0)
+                Text(message, ConsoleColor.Magenta);
             EndLine();
             
             RequestCommand();

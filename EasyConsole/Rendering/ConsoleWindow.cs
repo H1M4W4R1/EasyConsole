@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using EasyConsole.Attributes;
 using EasyConsole.Commands;
+using EasyConsole.Data;
 
 namespace EasyConsole.Rendering
 {
@@ -284,6 +285,35 @@ namespace EasyConsole.Rendering
         {
             // Do nothing by default, just draw ;)
             Draw();
+        }
+
+        /// <summary>
+        /// Ask User a Question
+        /// </summary>
+        public static int Ask(string question, Answer[] answers, ConsoleColor textColor = ConsoleColor.Cyan, ConsoleColor ansColor = ConsoleColor.White)
+        {
+            Text(question, textColor);
+            Text(" ", textColor);
+            EndLine();
+            
+            foreach(var ans in answers)
+            {
+                var aText = "[" + char.ToUpper(ans.Answers[0][0]) + "]" + ans.Answers[0].Substring(1) + " ";
+                
+                Text(aText, ansColor);
+                Text(" ", ansColor);
+            }
+            
+            EndLine();
+            
+            var input = RequestInput();
+            for (var index = 0; index < answers.Length; index++)
+            {
+                var ans = answers[index];
+                if (ans.IsMet(input)) return index;
+            }
+
+            return -1;
         }
         
         public ConsoleWindow()
